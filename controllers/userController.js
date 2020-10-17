@@ -24,22 +24,24 @@ module.exports = class UserController {
     if (password !== confirm) {
       return res
         .status(400)
-        .json({ error_message: res.__("confirmPasswordWrong") });
+        .json({ error_message: res.__("CONFIRMATION_OF_PASSWORD_IS_WRONG") });
     }
     if (password && password.length < 8) {
       return res
         .status(422)
-        .json({ error_message: res.__("passwordLessThanEightCharacters") });
+        .json({ error_message: res.__("PASSWORD_LESS_THAN_EIGHT_CHARACTERS") });
     }
     if (mode === "EMAIL") {
       if (isEmptyString(email)) {
-        return res.status(422).json({ error_message: "電子郵件未填寫完整" });
+        return res.status(422).json({
+          error_message: res.__("EMAIL_INVALID"),
+        });
       }
       const existUser = await userModel.findOne({ email });
       if (existUser) {
         return res
           .status(409)
-          .json({ error_message: res.__("EmailHasBeenRegistered") });
+          .json({ error_message: res.__("EMAIL_HAS_BEEN_REGISTERED") });
       }
       const hashedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS);
       const userBeSave = new userModel({
@@ -55,14 +57,14 @@ module.exports = class UserController {
       return res.status(201).json(savedUser.toJsonWebToken());
     } else if (mode === "PHONE") {
       if (isEmptyString(phoneCode) || isEmptyString(phoneNumber)) {
-        return res.status(422).json({ error_message: "電話號碼未填寫完整" });
+        return res.status(422).json({ error_message: "PHONE_INVALID" });
       }
 
       const existUser = await userModel.findOne({ phoneCode, phoneNumber });
       if (existUser) {
         return res
           .status(409)
-          .json({ error_message: res.__("PhoneNumberHasBeenRegistered") });
+          .json({ error_message: res.__("PHONE_NUMBER_HAS_BEEN_REGISTERED") });
       }
       const hashedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS);
       const userBeSave = new userModel({
@@ -78,7 +80,9 @@ module.exports = class UserController {
 
       return res.status(201).json(savedUser.toJsonWebToken());
     } else {
-      return res.status(501).json({ error_message: "不支援此註冊模式" });
+      return res
+        .status(501)
+        .json({ error_message: res.__("REGISTER_MODE_NOT_SUPPORTED") });
     }
   }
 };

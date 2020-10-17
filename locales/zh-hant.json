@@ -1,6 +1,9 @@
 {
-  "confirmPasswordWrong": "確認密碼不正確",
-  "passwordLessThanEightCharacters": "密碼少於8個字元",
-  "EmailHasBeenRegistered": "Email已被使用",
-  "PhoneNumberHasBeenRegistered": "手機已被使用"
+  "CONFIRMATION_OF_PASSWORD_IS_WRONG": "確認密碼不正確",
+  "PASSWORD_LESS_THAN_EIGHT_CHARACTERS": "密碼少於8個字元",
+  "EMAIL_HAS_BEEN_REGISTERED": "Email已被使用",
+  "PHONE_NUMBER_HAS_BEEN_REGISTERED": "手機已被使用",
+  "EMAIL_INVALID": "Email未填寫或錯誤",
+  "PHONE_INVALID": "手機未填寫或錯誤",
+  "REGISTER_MODE_NOT_SUPPORTED": "此註冊模式不支援"
 }

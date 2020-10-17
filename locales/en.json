@@ -1,6 +1,9 @@
 {
-  "confirmPasswordWrong": "Confirmation of password is wrong",
-  "passwordLessThanEightCharacters": "Password is less than 8 characters",
-  "EmailHasBeenRegistered": "Email has been registered",
-  "PhoneNumberHasBeenRegistered": "Phone number has been registered"
+  "CONFIRMATION_OF_PASSWORD_IS_WRONG": "Confirmation of password is wrong",
+  "PASSWORD_LESS_THAN_EIGHT_CHARACTERS": "Password is less than 8 characters",
+  "EMAIL_HAS_BEEN_REGISTERED": "Email has been registered",
+  "PHONE_NUMBER_HAS_BEEN_REGISTERED": "Phone number has been registered",
+  "EMAIL_INVALID": "Email invalid",
+  "PHONE_INVALID": "Phone invalid",
+  "REGISTER_MODE_NOT_SUPPORTED": "Register mode not supported"
 }

@@ -14,12 +14,6 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-userSchema.methods.toObjectOmitPassword = function () {
-  const userObject = this.toObject();
-  delete userObject.password;
-  return userObject;
-};
-
 userSchema.methods.toJsonWebToken = function () {
   const userObject = this.toObject();
   delete userObject.password;

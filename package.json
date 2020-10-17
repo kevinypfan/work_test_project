@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon application.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
-    "start": "cross-env NODE_ENV=production node application.js"
+    "start": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",

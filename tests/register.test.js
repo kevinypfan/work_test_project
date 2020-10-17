@@ -50,6 +50,7 @@ describe("會員註冊", function () {
     };
     agent.post("/v1/user/register").send(payload).expect(422, done);
   });
+
   it("手機已被使用", function (done) {
     const payload = {
       mode: "PHONE",
@@ -61,6 +62,7 @@ describe("會員註冊", function () {
     };
     agent.post("/v1/user/register").send(payload).expect(409, done);
   });
+
   it("Email已被使用", function (done) {
     const payload = {
       mode: "EMAIL",

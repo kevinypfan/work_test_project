@@ -20,8 +20,4 @@ app.use(i18n.init);
 
 app.use("/v1", userRoute);
 
-app.get("/test", (req, res) => {
-  res.send("hey");
-});
-
 module.exports = app;

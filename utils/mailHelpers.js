@@ -10,6 +10,7 @@ module.exports = class MailHelpers {
       },
     });
   }
+
   injectMailInfo({ to, name }) {
     return {
       from: `${process.env.GMAIL_USERNAME}@gmail.com`,

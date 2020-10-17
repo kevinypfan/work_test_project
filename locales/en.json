@@ -1,0 +1,6 @@
+{
+  "confirmPasswordWrong": "Confirmation of password is wrong",
+  "passwordLessThanEightCharacters": "Password is less than 8 characters",
+  "EmailHasBeenRegistered": "Email has been registered",
+  "PhoneNumberHasBeenRegistered": "Phone number has been registered"
+}

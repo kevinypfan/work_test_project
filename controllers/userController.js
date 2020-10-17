@@ -22,10 +22,14 @@ module.exports = class UserController {
     } = req.body;
 
     if (password !== confirm) {
-      return res.status(400).json({ error_message: "確認密碼不正確" });
+      return res
+        .status(400)
+        .json({ error_message: res.__("confirmPasswordWrong") });
     }
     if (password && password.length < 8) {
-      return res.status(422).json({ error_message: "密碼少於8個字元" });
+      return res
+        .status(422)
+        .json({ error_message: res.__("passwordLessThanEightCharacters") });
     }
     if (mode === "EMAIL") {
       if (isEmptyString(email)) {
@@ -33,7 +37,9 @@ module.exports = class UserController {
       }
       const existUser = await userModel.findOne({ email });
       if (existUser) {
-        return res.status(409).json({ error_message: "Email 已被使用" });
+        return res
+          .status(409)
+          .json({ error_message: res.__("EmailHasBeenRegistered") });
       }
       const hashedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS);
       const userBeSave = new userModel({
@@ -54,7 +60,9 @@ module.exports = class UserController {
 
       const existUser = await userModel.findOne({ phoneCode, phoneNumber });
       if (existUser) {
-        return res.status(409).json({ error_message: "手機已被使用" });
+        return res
+          .status(409)
+          .json({ error_message: res.__("PhoneNumberHasBeenRegistered") });
       }
       const hashedPassword = bcrypt.hashSync(password, PASSWORD_SALT_ROUNDS);
       const userBeSave = new userModel({

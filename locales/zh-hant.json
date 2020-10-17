@@ -1,0 +1,6 @@
+{
+  "confirmPasswordWrong": "確認密碼不正確",
+  "passwordLessThanEightCharacters": "密碼少於8個字元",
+  "EmailHasBeenRegistered": "Email已被使用",
+  "PhoneNumberHasBeenRegistered": "手機已被使用"
+}
